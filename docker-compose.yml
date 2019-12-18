@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: abira_forest_backend
+    environment:
+      - APPLICATION_PORT=3310
+      - DATABASE_URL=postgres://maheshwari:Impact@123@host.docker.internal:5432/abira-backend
+      - DATABASE_SCHEMA=public
+      - DATABASE_SSL=false
+      - FOREST_AUTH_SECRET=0ed129e08f5840add106d0761466a3a5611a0ecc5c3904fedadb571bb47707e704d2d903474f64a44a4732a921219111
+      - FOREST_ENV_SECRET=6ecac3755354f1073eb8138f660d7816af7c6c39e5053c5a01b5f350bb6e3424
+    ports:
+      - "3310:3310"
+    volumes:
+      - ./:/usr/src/app
